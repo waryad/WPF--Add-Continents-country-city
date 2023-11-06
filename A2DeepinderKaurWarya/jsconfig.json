@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+
+  //  "WorldDBMdf": "Server=(LocalBD)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\owner\\Documents\\Visual Studio 2023 class projects\\A2DeepinderKaurWarya\\A2DeepinderKaurWarya\\APPDATA\\WorldDB.mdf;Trusted_Connection=Yes;",
+
+    "WorldDBLocal": "Server =(LocalDB)\\MSSQLLocalDB;Database=WorldDB;Trusted_Connection=Yes;"
+
+   // "WorldDBSqlServer": "Server =.\\sqlexpress; Database=WorldDB;Trusted_Connection=Yes;"
+
+
+  }
+}

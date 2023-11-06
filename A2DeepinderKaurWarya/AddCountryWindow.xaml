@@ -1,0 +1,48 @@
+﻿<Window x:Class="A2DeepinderKaurWarya.AddCountryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Country" Height="450" Width="570">
+    <Grid Margin="0,65,0,54">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Label Content="Add Country" Grid.Row="0" HorizontalAlignment="Center" Foreground="Blue" FontSize="20" FontWeight="Bold" Background="LightPink" Padding="10,5" Margin="0,-41,0,41" />
+        <!-- Continent Label -->
+        <Label Content="Continent:" Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+        <Label Content="*" Foreground="Red" Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Center" Visibility="Collapsed" x:Name="LblContinentRequired" />
+
+        <!-- ComboBox to display list of continents -->
+        <ComboBox x:Name="CmbContinents" Grid.Row="0" Margin="145,2,110,8"
+          DisplayMemberPath="ContinentName" SelectedValuePath="ContinentId"
+          SelectionChanged="CmbContinents_SelectionChanged" />
+
+        <!-- Countries Label -->
+        <Label Content="Country Name:" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+        <Label Content="*" Foreground="Red" Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Center" Visibility="Collapsed" x:Name="LblCountryRequired" />
+
+        <TextBox x:Name="TxtCountryName" Grid.Row="1" Margin="145,5,5,5" Grid.RowSpan="2" />
+        
+        <Label Content="Language:" Grid.Row="3" Margin="5,5,260,10" />
+        <TextBox x:Name="TxtLanguage" Grid.Row="3" Margin="145,5,5,5" />
+
+        <Label Content="Currency:" Grid.Row="4" Margin="5,5,285,10" />
+        <TextBox x:Name="TxtCurrency" Grid.Row="4" Margin="145,5,5,5" />
+
+        <!-- Labels to display validation messages -->
+        <Label x:Name="LblContinentValidation" Grid.Row="5" Grid.Column="1" Margin="5" Foreground="Red" />
+        <Label x:Name="LblCountryValidation" Grid.Row="6" Grid.Column="1" Margin="5" Foreground="Red" />
+
+        <!-- Buttons to add country and close the window -->
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <Button x:Name="BtnAddCountry" Content="Add Country" Click="BtnAddCountry_Click" Margin="5" Width="100" />
+            <Button x:Name="BtnCloseWindow" Content="Close" Click="BtnCloseWindow_Click" Margin="5" Width="100" />
+        </StackPanel>
+    </Grid>
+</Window>

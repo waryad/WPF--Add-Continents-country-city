@@ -1,0 +1,81 @@
+﻿<Window x:Class="A2DeepinderKaurWarya.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MY WorldDB" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Row for Continents Label and ComboBox -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for Countries Label and ListBox -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for Labels (Language, Currency) -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for Cities Label and DataGrid -->
+            <RowDefinition Height="*" />
+            <!-- Row for Buttons -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Continent Label -->
+        <Label Content="Continent:" FontWeight="DemiBold"   Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+
+        <!-- ComboBox to display list of continents -->
+        <ComboBox x:Name="CmbContinents" Grid.Row="0" Grid.Column="1" Margin="5,5,250,5"
+                  DisplayMemberPath="ContinentName" SelectedValuePath="ContinentId"
+                  SelectionChanged="CmbContinents_SelectionChanged" />
+
+        <!-- Countries Label -->
+        <Label Content="Countries:" FontWeight="DemiBold" Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" />
+
+        <!-- ListBox to display list of countries -->
+        <ListBox x:Name="LstCountries" Grid.Row="4" Margin="10,10,10,219"
+                 DisplayMemberPath="CountryName" SelectedValuePath="CountryId"
+                 SelectionChanged="LstCountries_SelectionChanged" />
+
+        <!-- Labels to display selected country’s most common spoken language(s) and currency -->
+        <Grid Grid.Row="4" Margin="95,204,425,76" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Language:" Margin="-85,0,85,10" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="1.017"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Content="Currency:" Grid.Row="1" Margin="-85,8,85,-8" />
+            <Label x:Name="LblLanguage" Grid.Column="1" Foreground="Black" FontSize="14" Padding="5" />
+            <Label x:Name="LblCurrency" Grid.Row="1" Grid.Column="1" Foreground="Black" FontSize="14" Padding="5" />
+
+        </Grid>
+
+        <!-- Cities Label -->
+        <Label Content="Cities:" FontWeight="DemiBold" Grid.Row="1" Grid.Column="1" Margin="5,13,5,315" Grid.RowSpan="4" />
+
+        <!-- DataGrid to display the information of cities of the selected country -->
+        <DataGrid x:Name="dgCities" Grid.Row="4" Grid.Column="1" Margin="30,52,5,124"
+                  AutoGenerateColumns="True" />
+
+        <!-- Buttons to add continents, countries, and cities -->
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="60,282,50,10">
+            <Button x:Name="BtnAddContinent" Content="Add Continent" Click="BtnAddContinent_Click" Margin="5" Width="135" Background="LightGoldenrodYellow"/>
+            <Button x:Name="BtnAddCountry" Content="Add Country" Click="BtnAddCountry_Click" Margin="5" Width="110" Background="LightGoldenrodYellow" />
+            <Button x:Name="BtnAddCity" Content="Add City" Click="BtnAddCity_Click" Margin="5" RenderTransformOrigin="1.67,0.501" Width="80" Background="LightGoldenrodYellow"/>
+        </StackPanel>
+    </Grid>
+</Window>
